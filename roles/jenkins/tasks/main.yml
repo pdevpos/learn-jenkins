@@ -52,8 +52,8 @@
 
 - name: copy Init scripts
   ansible.builtin.template:
-    src: /templates/{{ item }}
-    dest: /var/lib/jenkins/init.groovy.d/
+    src: "{{ item }}"
+    dest: /var/lib/jenkins/init.groovy.d/{{ item }}
   loop:
     - 01-wizard.groovy
     - 02-admin-user.groovy
