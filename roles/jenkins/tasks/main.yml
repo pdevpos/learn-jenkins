@@ -26,17 +26,11 @@
     state: directory
   when: jenkins_repo_dir.failed is true
 
+- name: copy jenkins repo file
+  ansible.builtin.template:
+    src: jenkins.repo
+    dest: /etc/yum.repos.d/jenkins.repo
 
-#- name: Check if Jenkins repo content exists
-#  ansible.builtin.shell: "grep 'Jenkins' /etc/yum.repos.d/jenkins.repo"
-#  register: grep_result
-#  ignore_errors: yes
-#
-#- name: copy jenkins repo file
-#  ansible.builtin.template:
-#    src: jenkins.repo
-#    dest: /etc/yum.repos.d/jenkins.repo
-#  when: grep_result.failed is true
 #
 #- name: Install Java and jenkins
 #  ansible.builtin.dnf:
