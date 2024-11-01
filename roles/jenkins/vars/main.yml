@@ -1,2 +1,5 @@
 vault_token: '{{ lookup("env", "vault_token") }}'
 secrets: "{{ lookup('hashi_vault', 'secret=credentials/data/jenkins token={{ vault_token }} url=https://54.221.54.164:8200')}}"
+jenkins_setup: false
+jenkins_jobs: false
+

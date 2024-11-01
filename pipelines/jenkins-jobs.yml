@@ -1,6 +1,6 @@
 format_version: 10
 pipelines:
-  jenkins:
+  jenkins-jobs:
     group: expense
     label_template: ${COUNT}
     lock_behavior: none
@@ -25,5 +25,5 @@ pipelines:
             vault-job:
               timeout: 0
               tasks:
-                - exec: {command: ansible-playbook,arguments:["-i","172.31.34.117,","tools.yml","-e","tools_name=jenkins","-e","ansible_user=ec2-user","-e","ansible_password=DevOps321","-e","jenkins_setup=true"],run_if: passed}
+                - exec: {command: ansible-playbook,arguments:["-i","172.31.34.117,","tools.yml","-e","tools_name=jenkins","-e","ansible_user=ec2-user","-e","ansible_password=DevOps321","-e","jenkins_job=true"],run_if: passed}
 
