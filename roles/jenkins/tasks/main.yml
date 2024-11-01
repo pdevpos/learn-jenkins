@@ -5,6 +5,7 @@
   ansible.builtin.file:
     path: /etc/yum.repos.d/jenkins.repo
   register: jenkins_repo_dir
+  ignore_errors: true
 
 #- name: jenkins directory exists or not
 #  ansible.builtin.debug:
@@ -15,7 +16,7 @@
     path: /etc/yum.repos.d/jenkins.repo
     state: directory
   when: jenkins_repo_dir.failed is true
-  ignore_errors: true
+
 
 - name: Check if Jenkins repo content exists
   ansible.builtin.shell: "grep 'Jenkins' /etc/yum.repos.d/jenkins.repo"
@@ -39,6 +40,7 @@
 
 - name: start jenkins service
   ansible.builtin.systemd_service:
+    name: jenkins
     state: restarted
     daemon_reload: true
     enabled: true
