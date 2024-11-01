@@ -8,13 +8,7 @@
     file: jenkins-job.yml
   when: jenkins_job | bool
 
-- name: print vault_token
-  ansible.builtin.debug:
-    msg: "{{ vault_token }}"
 
-- name: print secrets
-  ansible.builtin.debug:
-    msg: "{{ secrets }}"
 
 
 
