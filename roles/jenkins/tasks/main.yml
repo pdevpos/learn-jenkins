@@ -4,7 +4,6 @@
 - name: make a jenkins directory
   ansible.builtin.file:
     path: /etc/yum.repos.d/jenkins.repo
-    state: directory
   register: jenkins_repo_dir
 
 - name: jenkins directory exists or not
