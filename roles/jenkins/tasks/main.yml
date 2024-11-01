@@ -36,27 +36,27 @@
     - java-17-openjdk
     - fontconfig
     - jenkins
-#
-#- name: make a groovy directory
-#  ansible.builtin.file:
-#    path: /var/lib/jenkins/init.groovy.d
-#    state: directory
-#
-#- name: copy Init scripts
-#  ansible.builtin.template:
-#    src: "{{ item }}"
-#    dest: /var/lib/jenkins/init.groovy.d/{{ item }}
-#  loop:
-#    - 01-wizard.groovy
-#    - 02-admin-user.groovy
-#    - 03-plugins.groovy
-#
-#- name: start jenkins service
-#  ansible.builtin.systemd_service:
-#    name: jenkins
-#    state: restarted
-#    daemon_reload: true
-#    enabled: true
+
+- name: make a groovy directory
+  ansible.builtin.file:
+    path: /var/lib/jenkins/init.groovy.d
+    state: directory
+
+- name: copy Init scripts
+  ansible.builtin.template:
+    src: "{{ item }}"
+    dest: /var/lib/jenkins/init.groovy.d/{{ item }}
+  loop:
+    - 01-wizard.groovy
+    - 02-admin-user.groovy
+    - 03-plugins.groovy
+
+- name: start jenkins service
+  ansible.builtin.systemd_service:
+    name: jenkins
+    state: restarted
+    daemon_reload: true
+    enabled: true
 
 
 
