@@ -51,9 +51,9 @@
     state: directory
 
 - name: copy Init scripts
-  ansible.builtin.dnf:
-    path: /var/lib/jenkins/init.groovy.d/{{ item }}
-    state: present
+  ansible.builtin.template:
+    src: /templates/{{ item }}
+    dest: /var/lib/jenkins/init.groovy.d/
   loop:
     - 01-wizard.groovy
     - 02-admin-user.groovy
