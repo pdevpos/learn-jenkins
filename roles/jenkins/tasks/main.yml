@@ -1,0 +1,42 @@
+- name: set jenkins name
+  ansible.builtin.shell: set-prompt jenkins
+
+- name: make a jenkins directory
+  ansible.builtin.file:
+    path: /etc/yum.repos.d/jenkins.repo
+    state: directory
+
+- name: copy jenkins repo file
+  ansible.builtin.template:
+    src: jenkins.repo
+    dest: /etc/yum.repos.d/jenkins.repo
+
+- name: Install Java and jenkins
+  ansible.builtin.dnf:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - java-17-openjdk
+    - fontconfig
+    - jenkins
+
+- name: start jenkins service
+  ansible.builtin.systemd_service:
+    state: restarted
+    daemon_reload: true
+    enabled: true
+
+
+- name: copy Init scripts
+  ansible.builtin.file:
+    path: /var/lib/jenkins/init.groovy.d/{{ items }}
+  loop:
+    - 01-wizard.groovy
+    - 02-admin-user.groovy
+    - 03-plugins.groovy
+
+
+
+
+
+
