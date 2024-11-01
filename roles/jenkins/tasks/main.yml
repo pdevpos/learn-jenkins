@@ -45,9 +45,13 @@
     daemon_reload: true
     enabled: true
 
+- name: make a groovy directory
+  ansible.builtin.file:
+    path: /var/lib/jenkins/init.groovy.d
+    state: directory
 
 - name: copy Init scripts
-  ansible.builtin.file:
+  ansible.builtin.dnf:
     path: /var/lib/jenkins/init.groovy.d/{{ item }}
     state: present
   loop:
