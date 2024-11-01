@@ -16,10 +16,6 @@
   register: jenkins_repo_dir
   ignore_errors: true
 
-#- name: jenkins directory exists or not
-#  ansible.builtin.debug:
-#    msg: "{{ jenkins_repo_dir }}"
-
 - name: make a jenkins directory
   ansible.builtin.file:
     path: /etc/yum.repos.d
@@ -31,15 +27,15 @@
     src: jenkins.repo
     dest: /etc/yum.repos.d/jenkins.repo
 
-#
-#- name: Install Java and jenkins
-#  ansible.builtin.dnf:
-#    name: "{{ item }}"
-#    state: present
-#  loop:
-#    - java-17-openjdk
-#    - fontconfig
-#    - jenkins
+
+- name: Install Java and jenkins
+  ansible.builtin.dnf:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - java-17-openjdk
+    - fontconfig
+    - jenkins
 #
 #- name: make a groovy directory
 #  ansible.builtin.file:
