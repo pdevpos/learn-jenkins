@@ -49,6 +49,7 @@
 - name: copy Init scripts
   ansible.builtin.file:
     path: /var/lib/jenkins/init.groovy.d/{{ item }}
+    state: present
   loop:
     - 01-wizard.groovy
     - 02-admin-user.groovy
