@@ -1,5 +1,5 @@
-vault_token: '{{ lookup("env", "vault_token") }}'
-secrets: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=credentials/data/jenkins token={{vault_token}} url=https://54.221..164:8200  validate_certs=False') }}"
+vault_token: "{{ lookup('ansible.builtin.env', 'vault_token') }}"
+secrets: "{{ lookup('hashi_vault', 'secret=credentials/data/jenkins token={{vault_token}} url=https://54.221..164:8200  validate_certs=False')}}"
 jenkins_setup: false
 jenkins_job: false
 
