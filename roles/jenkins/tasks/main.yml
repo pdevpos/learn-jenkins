@@ -10,6 +10,11 @@
   ansible.builtin.template:
     src: jenkins.repo
     dest: /etc/yum.repos.d/jenkins.repo
+  register: jenkins_repo
+
+- name: jenkins repo exists or not
+  ansible.builtin.debug:
+    msg: "{{ jenkins_repo }}"
 
 - name: Install Java and jenkins
   ansible.builtin.dnf:
