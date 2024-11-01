@@ -1,45 +1,37 @@
 <?xml version='1.1' encoding='UTF-8'?>
-<hudson>
-    <disabledAdministrativeMonitors>
-        <string>jenkins.diagnostics.ControllerExecutorsAgents</string>
-        <string>hudson.diagnosis.ReverseProxySetupMonitor</string>
-    </disabledAdministrativeMonitors>
-    <version>2.462.3</version>
-    <numExecutors>2</numExecutors>
-    <mode>NORMAL</mode>
-    <useSecurity>true</useSecurity>
-    <authorizationStrategy class="hudson.security.FullControlOnceLoggedInAuthorizationStrategy">
-        <denyAnonymousReadAccess>true</denyAnonymousReadAccess>
-    </authorizationStrategy>
-    <securityRealm class="hudson.security.HudsonPrivateSecurityRealm">
-        <disableSignup>true</disableSignup>
-        <enableCaptcha>false</enableCaptcha>
-    </securityRealm>
-    <disableRememberMe>false</disableRememberMe>
-    <projectNamingStrategy class="jenkins.model.ProjectNamingStrategy$DefaultProjectNamingStrategy"/>
-    <workspaceDir>${JENKINS_HOME}/workspace/${ITEM_FULL_NAME}</workspaceDir>
-    <buildsDir>${ITEM_ROOTDIR}/builds</buildsDir>
-    <jdks/>
-    <viewsTabBar class="hudson.views.DefaultViewsTabBar"/>
-    <myViewsTabBar class="hudson.views.DefaultMyViewsTabBar"/>
-    <clouds/>
-    <scmCheckoutRetryCount>0</scmCheckoutRetryCount>
-    <views>
-        <hudson.model.AllView>
-            <owner class="hudson" reference="../../.."/>
-            <name>all</name>
-            <filterExecutors>false</filterExecutors>
-            <filterQueue>false</filterQueue>
-            <properties class="hudson.model.View$PropertyList"/>
-        </hudson.model.AllView>
-    </views>
-    <primaryView>all</primaryView>
-    <slaveAgentPort>-1</slaveAgentPort>
-    <label></label>
-    <crumbIssuer class="hudson.security.csrf.DefaultCrumbIssuer">
-        <excludeClientIPFromCrumb>false</excludeClientIPFromCrumb>
-    </crumbIssuer>
-    <nodeProperties/>
-    <globalNodeProperties/>
-    <nodeRenameMigrationNeeded>false</nodeRenameMigrationNeeded>
-</hudson>
+<flow-definition plugin="workflow-job@1460.v28178c1ef6e6">
+    <actions>
+        <org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobAction plugin="pipeline-model-definition@2.2214.vb_b_34b_2ea_9b_83"/>
+        <org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobPropertyTrackerAction plugin="pipeline-model-definition@2.2214.vb_b_34b_2ea_9b_83">
+            <jobProperties/>
+            <triggers/>
+            <parameters/>
+            <options/>
+        </org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobPropertyTrackerAction>
+    </actions>
+    <description>this is a pipeline</description>
+    <keepDependencies>false</keepDependencies>
+    <properties/>
+    <definition class="org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition" plugin="workflow-cps@3990.vd281dd77a_388">
+        <scm class="hudson.plugins.git.GitSCM" plugin="git@5.6.0">
+            <configVersion>2</configVersion>
+            <userRemoteConfigs>
+                <hudson.plugins.git.UserRemoteConfig>
+                    <url>https://github.com/pdevpos/expense-jenkins.git</url>
+                </hudson.plugins.git.UserRemoteConfig>
+            </userRemoteConfigs>
+            <branches>
+                <hudson.plugins.git.BranchSpec>
+                    <name>*/main</name>
+                </hudson.plugins.git.BranchSpec>
+            </branches>
+            <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+            <submoduleCfg class="empty-list"/>
+            <extensions/>
+        </scm>
+        <scriptPath>Jenkinsfile</scriptPath>
+        <lightweight>true</lightweight>
+    </definition>
+    <triggers/>
+    <disabled>false</disabled>
+</flow-definition>
