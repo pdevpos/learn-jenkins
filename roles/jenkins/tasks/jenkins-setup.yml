@@ -18,7 +18,6 @@
     src: jenkins.repo
     dest: /etc/yum.repos.d/jenkins.repo
 
-
 - name: Install Java and jenkins
   ansible.builtin.dnf:
     name: "{{ item }}"
@@ -33,13 +32,13 @@
     path: /var/lib/jenkins/init.groovy.d
     state: directory
 
-- name: print vault_token
-  ansible.builtin.debug:
-    msg: "{{ vault_token }}"
-
-- name: print secrets
-  ansible.builtin.debug:
-    msg: "{{ secrets }}"
+#- name: print vault_token
+#  ansible.builtin.debug:
+#    msg: "{{ vault_token }}"
+#
+#- name: print secrets
+#  ansible.builtin.debug:
+#    msg: "{{ secrets }}"
 
 - name: copy Init scripts
   ansible.builtin.template:
@@ -57,7 +56,4 @@
     daemon_reload: true
     enabled: true
 
-- name: Install python package dependencies
-  ansible.builtin.pip:
-    name: python-jenkins
-    executable: pip3.9
+
