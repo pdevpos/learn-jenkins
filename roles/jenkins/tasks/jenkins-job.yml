@@ -3,12 +3,21 @@
     name: python-jenkins
     executable: pip3.9
 
+- name: move from local to remote
+  ansible.builtin.template:
+    src: jobs/jenkins-config.xml
+    dest: /tmp/{{item}}.xml
+  loop:
+    - frontend
+    - backend
+
+
 - name: Create a jenkins job using basic authentication
   community.general.jenkins_job:
     config: "{{ lookup('file', 'templates/jobs/{{item}}.xml') }}"
     name: "{{item}}"
     password: admin123
-    url: http://204.236.247.250:8080/
+    url: http://54.166.137.16:8080/
     user: admin
   loop:
     - frontend
