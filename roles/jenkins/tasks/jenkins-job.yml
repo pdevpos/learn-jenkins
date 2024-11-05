@@ -18,6 +18,7 @@
   loop:
     - frontend
     - backend
+  delegate_to: localhost
 
 - name: Create a jenkins job using basic authentication
   community.general.jenkins_job:
