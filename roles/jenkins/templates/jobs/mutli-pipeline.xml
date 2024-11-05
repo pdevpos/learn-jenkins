@@ -24,7 +24,7 @@
             <jenkins.branch.BranchSource>
                 <source class="jenkins.plugins.git.GitSCMSource" plugin="git@5.6.0">
                     <id>c9cc15ae-ae85-42ac-a58c-bb4f7d955b90</id>
-                    <remote>https://github.com/pdevpos/expense-jenkins.git</remote>
+                    <remote>https://github.com/pdevpos/expense-{{item}}.git</remote>
                     <credentialsId>ssh-auth</credentialsId>
                     <traits>
                         <jenkins.plugins.git.traits.BranchDiscoveryTrait/>
