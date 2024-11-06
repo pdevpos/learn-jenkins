@@ -13,11 +13,12 @@
 
 - name: move from local to remote
   ansible.builtin.template:
-    src: jobs/mpipeline-config.xml
+    src: jobs/mpipeline.xml
     dest: /tmp/{{item}}.xml
   loop:
     - frontend
     - backend
+  delegate_to: localhost
   become: false
 
 - name: Create a jenkins job using basic authentication
