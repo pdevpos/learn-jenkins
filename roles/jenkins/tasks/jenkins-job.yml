@@ -10,6 +10,10 @@
 #  loop:
 #    - frontend
 #    - backend
+- name: make a directory
+  ansible.builtin.file:
+    path: /tmp/mbranch
+    state: directory
 
 - name: move from local to remote
   ansible.builtin.template:
