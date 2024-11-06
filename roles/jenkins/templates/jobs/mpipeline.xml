@@ -1,8 +1,7 @@
 <?xml version='1.1' encoding='UTF-8'?>
 <org.jenkinsci.plugins.workflow.multibranch.WorkflowMultiBranchProject plugin="workflow-multibranch@795.ve0cb_1f45ca_9a_">
     <actions/>
-    <description>this is a multi branch pipeline</description>
-    <displayName>mpipe</displayName>
+    <description></description>
     <properties/>
     <folderViews class="jenkins.branch.MultiBranchProjectViewHolder" plugin="branch-api@2.1197.vfa_d0c47c267d">
         <owner class="org.jenkinsci.plugins.workflow.multibranch.WorkflowMultiBranchProject" reference="../.."/>
@@ -22,24 +21,12 @@
     <sources class="jenkins.branch.MultiBranchProject$BranchSourceList" plugin="branch-api@2.1197.vfa_d0c47c267d">
         <data>
             <jenkins.branch.BranchSource>
-                <source class="org.jenkinsci.plugins.github_branch_source.GitHubSCMSource" plugin="github-branch-source@1807.v50351eb_7dd13">
-                    <id>725d6c44-5f68-4ef8-913c-310a9f36408a</id>
-                    <apiUri>https://api.github.com</apiUri>
-                    <credentialsId>ssh-auth</credentialsId>
-                    <repoOwner>pdevpos</repoOwner>
-                    <repository>expense-jenkins</repository>
-                    <repositoryUrl>https://github.com/pdevpos/expense-{{item}}.git</repositoryUrl>
+                <source class="jenkins.plugins.git.GitSCMSource" plugin="git@5.6.0">
+                    <id>7058f13e-3ddc-4db7-9036-a91a74ec9a74</id>
+                    <remote>https://github.com/pdevpos/expense-{{item}}.git</remote>
+                    <credentialsId></credentialsId>
                     <traits>
-                        <org.jenkinsci.plugins.github__branch__source.BranchDiscoveryTrait>
-                            <strategyId>1</strategyId>
-                        </org.jenkinsci.plugins.github__branch__source.BranchDiscoveryTrait>
-                        <org.jenkinsci.plugins.github__branch__source.OriginPullRequestDiscoveryTrait>
-                            <strategyId>2</strategyId>
-                        </org.jenkinsci.plugins.github__branch__source.OriginPullRequestDiscoveryTrait>
-                        <org.jenkinsci.plugins.github__branch__source.ForkPullRequestDiscoveryTrait>
-                            <strategyId>2</strategyId>
-                            <trust class="org.jenkinsci.plugins.github_branch_source.ForkPullRequestDiscoveryTrait$TrustPermission"/>
-                        </org.jenkinsci.plugins.github__branch__source.ForkPullRequestDiscoveryTrait>
+                        <jenkins.plugins.git.traits.BranchDiscoveryTrait/>
                     </traits>
                 </source>
                 <strategy class="jenkins.branch.DefaultBranchPropertyStrategy">
