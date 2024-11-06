@@ -22,7 +22,7 @@ pipelines:
             type: manual
             allow_only_on_success: false
           jobs:
-            vault-job:
+            jenkins-job:
               timeout: 0
               tasks:
                 - exec: {command: ansible-playbook,arguments:["-i","172.31.34.117,","tools.yml","-e","tools_name=jenkins","-e","ansible_user=ec2-user","-e","ansible_password=DevOps321","-e","jenkins_job=true"],run_if: passed}
