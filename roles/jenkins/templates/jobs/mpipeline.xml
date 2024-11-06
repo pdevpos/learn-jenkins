@@ -22,11 +22,12 @@
         <data>
             <jenkins.branch.BranchSource>
                 <source class="jenkins.plugins.git.GitSCMSource" plugin="git@5.6.0">
-                    <id>7058f13e-3ddc-4db7-9036-a91a74ec9a74</id>
-                    <remote>https://github.com/pdevpos/expense-{{item}}.git</remote>
+                    <id>dfd1023f-b146-4030-b6c8-0c77131f7388</id>
+                    <remote>https://github.com/pdevpos/expense-jenkins.git</remote>
                     <credentialsId></credentialsId>
                     <traits>
                         <jenkins.plugins.git.traits.BranchDiscoveryTrait/>
+                        <jenkins.plugins.git.traits.TagDiscoveryTrait/>
                     </traits>
                 </source>
                 <strategy class="jenkins.branch.DefaultBranchPropertyStrategy">
