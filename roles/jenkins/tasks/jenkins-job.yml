@@ -13,7 +13,7 @@
 
 - name: move from local to remote
   ansible.builtin.template:
-    src: jobs/mpipeline.xml
+    src: jobs/jenkins-config.xml
     dest: /tmp/{{item}}.xml
   loop:
     - frontend
@@ -26,7 +26,7 @@
     config: "{{ lookup('file', '/tmp/{{item}}.xml') }}"
     name: "{{item}}"
     password: admin123
-    url: http://54.167.252.207:8080/
+    url: http://3.94.204.95:8080/
     user: admin
   loop:
     - frontend
