@@ -3,14 +3,6 @@
     name: python-jenkins
     executable: pip3.9
 
-- name: move from local to remote
-  ansible.builtin.template:
-    src: jobs/jenkins-config.xml
-    dest: /tmp/{{item}}.xml
-  loop:
-    - frontend
-    - backend
-
 #- name: move from local to remote
 #  ansible.builtin.template:
 #    src: jobs/jenkins-config.xml
@@ -18,7 +10,15 @@
 #  loop:
 #    - frontend
 #    - backend
-#  become: false
+
+- name: move from local to remote
+  ansible.builtin.template:
+    src: jobs/jenkins-config.xml
+    dest: /tmp/{{item}}.xml
+  loop:
+    - frontend
+    - backend
+  become: false
 
 
 - name: Create a jenkins job using basic authentication
