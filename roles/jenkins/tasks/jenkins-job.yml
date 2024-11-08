@@ -13,7 +13,7 @@
 
 - name: move from local to remote
   ansible.builtin.template:
-    src: jobs/jenkins-config.xml
+    src: jobs/mpipeline.xml
     dest: /tmp/{{item}}.xml
   loop:
     - frontend
