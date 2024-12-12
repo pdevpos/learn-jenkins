@@ -1,1 +1,1 @@
-echo "Hello kubernetes" >/usr/share/nginx/html
+echo "Hello kubernetes"
