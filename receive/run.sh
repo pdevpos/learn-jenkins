@@ -1,2 +1,1 @@
-echo /data
-cat /data
+echo "Don!"
