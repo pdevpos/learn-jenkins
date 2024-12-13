@@ -1,2 +1,1 @@
-source /data/run.sh
-echo /data
+echo "Done!"
