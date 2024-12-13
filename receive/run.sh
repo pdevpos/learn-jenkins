@@ -1,1 +1,2 @@
-echo "Done!"
+source /data
+echo /data
