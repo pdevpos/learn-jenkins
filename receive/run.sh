@@ -1,2 +1,2 @@
-source /data
+source /data/run.sh
 echo /data
