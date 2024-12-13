@@ -1,5 +1,2 @@
-if [ -z "$DB_HOST" ]; then
- echo DB_HOST is missing
-else
-  echo "$DB_HOST" >/data/db_host_value
-fi
+echo "receive db_host data....">/data/db_host_value
+cat /data/db_host_value
